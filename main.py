@@ -45,9 +45,7 @@ async def on_message(mes):
     questxt.close()
     questxt = open("qa's.txt", "r")
     beforetilda = True
-  if mes.content == ";h" or mes.content == ";f" or mes.content == ";s":
-    await mes.channel.send("no poopy head")
-  elif mes.content[0] == "'":
+  if mes.content[0] == "'":
     print("activated")
     message = ""
     for k in range(len(mes.content)):
