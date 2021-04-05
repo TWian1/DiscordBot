@@ -67,7 +67,7 @@ async def on_message(mes):
       await mes.channel.send("quit.")
       guesses = 0
     if message.lower() == "dmme":
-      await mes.author.send("ok lol")
+      await mes.author.send("ok")
     thingy = False
     if randomcurrent == True:
       for u in inte:
