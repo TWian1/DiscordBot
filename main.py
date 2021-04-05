@@ -16,8 +16,7 @@ async def on_message(mes):
   for j in range(1000):
     inte.append(j+1)
   global randomcurrent
-  if mes.author == client.user:
-    return
+  if mes.author == client.user: return
   qas=[]
   qadd=[]
   qu = ""
@@ -32,10 +31,8 @@ async def on_message(mes):
         beforetilda = False
         continue
         print('tilda')
-      if beforetilda == True:
-        qu += p
-      if beforetilda == False:
-        an += p
+      if beforetilda == True: qu += p
+      if beforetilda == False: an += p
     qadd.append(qu)
     qadd.append(an)
     qas.append(qadd)
@@ -49,14 +46,11 @@ async def on_message(mes):
     print("activated")
     message = ""
     for k in range(len(mes.content)):
-      if mes.content[k] == "'":
-        continue
-      else:
-        message += str(mes.content[k])
+      if mes.content[k] == "'": continue
+      else: message += str(mes.content[k])
     print(message.lower())
     for a in range(len(qas)):
-      if message.lower() == qas[a][0]:
-        await mes.channel.send(qas[a][1])
+      if message.lower() == qas[a][0]: await mes.channel.send(qas[a][1])
     if message.lower() == "random" and randomcurrent == False:
       guesses = 0
       number = random.randint(1, 1000)
@@ -66,15 +60,12 @@ async def on_message(mes):
       randomcurrent = False
       await mes.channel.send("quit.")
       guesses = 0
-    if message.lower() == "dmme":
-      await mes.author.send("ok")
+    if message.lower() == "dmme": await mes.author.send("ok")
     thingy = False
     if randomcurrent == True:
       for u in inte:
-        if message == str(u):
-          thingy = True
-      if thingy == False:
-        return
+        if message == str(u): thingy = True
+      if thingy == False: return
       else:
         if int(message) == number:
           await mes.channel.send("YOU GOT IT!! Guesses: " + str(guesses))
